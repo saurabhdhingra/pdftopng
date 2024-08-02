@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:pdftopng/ui/intro.dart';
+import 'package:pdftopng/ui/upload.dart';
 
 import '../utils/ui_utils.dart';
 
-class SplashScreen extends StatefulWidget {
-  const SplashScreen({super.key});
+class SplashView extends StatefulWidget {
+  const SplashView({super.key});
 
   @override
-  _SplashScreenState createState() => _SplashScreenState();
+  // ignore: library_private_types_in_public_api
+  _SplashViewState createState() => _SplashViewState();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
+class _SplashViewState extends State<SplashView> {
   bool visible = true;
 
   @override
@@ -27,7 +28,7 @@ class _SplashScreenState extends State<SplashScreen> {
       (value) => Navigator.of(context).pushReplacement(
         PageRouteBuilder(
           pageBuilder: (context, animation, secondaryAnimation) =>
-              const Intro(),
+              const UploadView(),
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             return FadeTransition(opacity: animation, child: child);
           },
@@ -44,7 +45,6 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     var height = SizeConfig.getHeight(context);
-    var width = SizeConfig.getWidth(context);
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -58,8 +58,7 @@ class _SplashScreenState extends State<SplashScreen> {
             color: Colors.white,
             margin: EdgeInsets.zero,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(height * 0.04),
-            ),
+                borderRadius: BorderRadius.circular(height * 0.04)),
             child: Padding(
               padding: EdgeInsets.symmetric(
                 horizontal: height * 0.01,
