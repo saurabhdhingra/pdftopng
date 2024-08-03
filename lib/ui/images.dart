@@ -170,7 +170,7 @@ class _ImagesViewState extends State<ImagesView>
                                                     imageData: images[
                                                             (index / 2).floor()]
                                                         .bytes,
-                                                    imageName: (index / 2)
+                                                    imageName: ((index / 2) + 1)
                                                         .floor()
                                                         .toString(),
                                                   );
@@ -179,7 +179,9 @@ class _ImagesViewState extends State<ImagesView>
                                             );
                                           },
                                           child: Hero(
-                                            tag: (index / 2).floor().toString(),
+                                            tag: ((index / 2) + 1)
+                                                .floor()
+                                                .toString(),
                                             child: Card(
                                               shape: RoundedRectangleBorder(
                                                   borderRadius:
