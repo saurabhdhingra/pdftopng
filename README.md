@@ -1,16 +1,51 @@
-# pdftopng
+# PDF to PNG Converter
+Hi, as mentioned in the assignment description. I have completed the first assignment.
 
-A new Flutter project.
+## Features
 
-## Getting Started
+- **Select PDF File**: Easily select a PDF file from your device.
+- **Convert PDF to PNG**: Convert each page of the selected PDF into separate PNG images.
+- **View PNG Images**: View the generated PNG images within the app.
+- **Share Images**: Share the converted PNG images with others directly from the app.
 
-This project is a starting point for a Flutter application.
+## Screenshots
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Installation
+
+1. **Clone the repository:**
+
+    ```bash
+    git clone https://github.com/saurabhdhingra/pdftopng.git
+    cd pdftopng
+    ```
+
+2. **Install dependencies:**
+
+    ```bash
+    flutter pub get
+    ```
+
+3. **Run the app:**
+
+    ```bash
+    flutter run
+    ```
+
+## Usage
+
+1. **Open the app.**
+2. **Select a PDF file** from your device storage.
+3. **Click the 'Convert' button** to start the conversion process.
+4. **View the PNG images** generated from each page of the PDF.
+5. **Share the images** with others using the share functionality.
+
+## Dependencies
+
+This app uses the following dependencies:
+
+- `path_provider`: For accessing device storage.
+- `pdf_render`: For rendering PDF files into images.
+- `share_plus`: For sharing the converted images.
+
