@@ -29,7 +29,7 @@ class _SelectionState extends State<Selection> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(title: Text(widget.imageName)),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

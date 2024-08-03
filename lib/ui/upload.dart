@@ -80,115 +80,119 @@ class _UploadViewState extends State<UploadView>
             width: width,
             child: Stack(
               children: [
-                AnimatedBuilder(
-                  animation: _controller,
-                  builder: (context, child) {
-                    return Transform.translate(
-                      offset: Offset(0, -_animation1.value + height * 0.35),
-                      child: AnimatedOpacity(
-                        opacity: isVisible1 ? 1.0 : 0.0,
-                        duration: const Duration(milliseconds: 1500),
-                        child: Padding(
-                          padding: EdgeInsets.all(width * 0.05),
-                          child: SizedBox(
-                            width: width * 0.9,
-                            child: Text(
-                              _pickedFilePath == null
-                                  ? isTransiton
-                                      ? "Pick the new PDF"
-                                      : "Hey ! Let's convert your PDFs to PNGs."
-                                  : 'File picked : ${_pickedFilePath!.split('/').last}',
-                              style: GoogleFonts.roboto(
-                                fontSize: width * 0.08,
-                                fontWeight: FontWeight.w500,
-                                color: Colors.black87,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    );
-                  },
-                ),
-                AnimatedBuilder(
-                  animation: _controller,
-                  builder: (context, child) {
-                    return Transform.translate(
-                      offset: Offset(
-                          _animation2.value + width * 0.51, height * 0.8),
-                      child: AnimatedOpacity(
-                        opacity: isVisible2 ? 1.0 : 0.0,
-                        duration: const Duration(milliseconds: 1500),
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: GestureDetector(
-                            onTap: () {
-                              _pickedFilePath == null
-                                  ? _pickPDF()
-                                  : _controller.forward().then(
-                                      (value) async {
-                                        bool? result = await Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) => ImagesView(
-                                              pdfPath: _pickedFilePath!,
-                                            ),
-                                          ),
-                                        );
-                                        setState(() {
-                                          isTransiton = result ?? false;
-                                          _pickedFilePath = null;
-                                          _controller.reverse();
-                                        });
-                                      },
-                                    );
-                            },
-                            child: SizedBox(
-                              width: width * 0.42,
-                              child: Card(
-                                elevation: 5,
-                                color: const Color(0xFFFEFAE0),
-                                margin: EdgeInsets.zero,
-                                shape: RoundedRectangleBorder(
-                                    borderRadius:
-                                        BorderRadius.circular(height * 0.04)),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Row(
-                                    children: [
-                                      Icon(
-                                        _pickedFilePath == null
-                                            ? Icons.picture_as_pdf_sharp
-                                            : Icons.image,
-                                        size: height * 0.04,
-                                      ),
-                                      SizedBox(width: width * 0.04),
-                                      Text(
-                                        _pickedFilePath == null
-                                            ? "Upload"
-                                            : "Convert",
-                                        style: GoogleFonts.roboto(
-                                          fontSize: width * 0.07,
-                                          fontWeight: FontWeight.w500,
-                                          color: Colors.black87,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    );
-                  },
-                ),
+                label(height, width),
+                button(width, height),
               ],
             ),
           ),
         ),
       ),
+    );
+  }
+
+  AnimatedBuilder button(width, height) {
+    return AnimatedBuilder(
+      animation: _controller,
+      builder: (context, child) {
+        return Transform.translate(
+          offset: Offset(_animation2.value + width * 0.51, height * 0.8),
+          child: AnimatedOpacity(
+            opacity: isVisible2 ? 1.0 : 0.0,
+            duration: const Duration(milliseconds: 1500),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: GestureDetector(
+                onTap: () {
+                  _pickedFilePath == null
+                      ? _pickPDF()
+                      : _controller.forward().then(
+                          (value) async {
+                            bool? result = await Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ImagesView(
+                                  pdfPath: _pickedFilePath!,
+                                ),
+                              ),
+                            );
+                            setState(() {
+                              isTransiton = result ?? false;
+                              _pickedFilePath = null;
+                              _controller.reverse();
+                            });
+                          },
+                        );
+                },
+                child: SizedBox(
+                  width: width * 0.42,
+                  child: Card(
+                    elevation: 5,
+                    color: const Color(0xFFFEFAE0),
+                    margin: EdgeInsets.zero,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(height * 0.04)),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        children: [
+                          Icon(
+                            _pickedFilePath == null
+                                ? Icons.picture_as_pdf_sharp
+                                : Icons.image,
+                            size: height * 0.04,
+                          ),
+                          SizedBox(width: width * 0.04),
+                          Text(
+                            _pickedFilePath == null ? "Upload" : "Convert",
+                            style: GoogleFonts.roboto(
+                              fontSize: width * 0.07,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.black87,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  AnimatedBuilder label(height, width) {
+    return AnimatedBuilder(
+      animation: _controller,
+      builder: (context, child) {
+        return Transform.translate(
+          offset: Offset(0, -_animation1.value + height * 0.35),
+          child: AnimatedOpacity(
+            opacity: isVisible1 ? 1.0 : 0.0,
+            duration: const Duration(milliseconds: 1500),
+            child: Padding(
+              padding: EdgeInsets.all(width * 0.05),
+              child: SizedBox(
+                width: width * 0.9,
+                child: Text(
+                  _pickedFilePath == null
+                      ? isTransiton
+                          ? "Pick the new PDF"
+                          : "Hey ! Let's convert your PDFs to PNGs."
+                      : 'File picked : ${_pickedFilePath!.split('/').last}',
+                  style: GoogleFonts.roboto(
+                    fontSize: width * 0.08,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.black87,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 }
