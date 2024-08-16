@@ -13,14 +13,15 @@ Hi, as mentioned in the assignment description. I have completed the first assig
     <div> 
         <img src="https://github.com/user-attachments/assets/55a240f1-2fbe-4fa4-bb26-82dc54d9d24f" width="300" height="610">
         <img src="https://github.com/user-attachments/assets/7c8893ca-bec1-44fe-bb71-b17f0e6a8431" width="300" height="610">
-        <img src="https://github.com/user-attachments/assets/5c52f727-17dd-4690-81bd-21fb9f1db47a" width="300" height="610">
+        <img src="https://github.com/user-attachments/assets/61949945-8f63-4868-85b6-460c87d9538f" width="300" height="610">
     </div>
      <div> 
-        <img src="https://github.com/user-attachments/assets/f426a265-0690-457f-8942-be25c93651da" width="300" height="610">
+        <img src="https://github.com/user-attachments/assets/f76693d4-8ed5-4587-8900-da67315e15f7" width="300" height="610">
         <img src="https://github.com/user-attachments/assets/b240005a-418b-4fac-8d49-3722d461ee67" width="300" height="610">
         <img src="https://github.com/user-attachments/assets/3fc4039d-a487-4d3b-8379-96b7e11d87c2" width="300" height="610">
     </div>
 </div>
+
 
 ## Installation
 
